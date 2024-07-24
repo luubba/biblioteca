@@ -71,5 +71,6 @@ public class Cliente {
 	
 	public void reservarLivro() {
 		System.out.println("O livro " + livro + " foi reservado com sucesso!");
+		//incluir uma validação de data no momento que o cliente reservar o livro
 	}
 }
