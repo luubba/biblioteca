@@ -1,8 +1,7 @@
 package Program;
 
-import java.util.Scanner;
-
 import Entities.Cliente;
+import java.util.Scanner;
 
 public class Biblioteca {
 
@@ -52,9 +51,6 @@ public class Biblioteca {
 			
 			System.out.println();
 			
-			System.out.println("Informações do Cliente"
-					+"\n\n" +
-					cl[0].detalhes());
 			break;
 			
 			

@@ -1,5 +1,9 @@
 package Entities;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 public class Cliente {
 
 	private String nome;
@@ -62,15 +66,22 @@ public class Cliente {
 	}
 
 	//methods
+
+	DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+	LocalDateTime data = LocalDateTime.now();
+
+
+
 	 public String detalhes() {
 			return ("Nome: " + nome + 
 					"\nIdade: " + idade +
 					"\nTelefone: " + telefone+
-					"\nLivro: " + livro);
+					"\nLivro: " + livro +
+					"\nData: " + data.format(fmt1));
 	}
 	
 	public void reservarLivro() {
-		System.out.println("O livro " + livro + " foi reservado com sucesso!");
-		//incluir uma validação de data no momento que o cliente reservar o livro
+		System.out.println("Reserva efetuada com sucesso!");
+		System.out.println(this.detalhes());
 	}
 }
