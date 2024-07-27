@@ -1,6 +1,8 @@
 package Program;
 
 import Entities.Cliente;
+import Entities.Livro;
+import Entities.storage;
 import java.util.Scanner;
 
 public class Biblioteca {
@@ -40,22 +42,72 @@ public class Biblioteca {
 			System.out.println();
 			
 			System.out.println("Digite o nome do livro desejado: ");
-			String livro = sc.nextLine();
-			System.out.println();
-			System.out.println();
-			
-			Cliente[] cl = new Cliente[10];
-			cl[0] = new Cliente(nome, idade, telefone, livro);
-			
-			cl[0].reservarLivro();
-			
-			System.out.println();
+
+			String livroCliente = sc.nextLine();
+			storage.verificarLivro(livroCliente);
+
+			System.out.println("Verificando no disponibilidade no sistema...");
 			
 			break;
 			
 			
 		case 2:
-			break;
+
+			System.out.println("Seja bem vindo, colaborador!");
+			System.out.println("Digite seu nome: ");
+			String name = sc.nextLine();
+
+		 	System.out.println(
+			"O que deseja fazer a seguir?"
+			+"\n\n1. Cadastrar entrega de livro."
+			+ "\n2. Cadastrar aluguel de livro"
+			+ "\n3. Adicionar livros ao estoque");
+
+			int option2 = sc.nextInt();
+			sc.nextLine();
+
+			switch (option2){
+
+				case 1:
+					System.out.println("Digite o nome do livro:");
+					String livroEntregue = sc.nextLine();
+					System.out.println("Digite o nome do autor:");
+					String autorEntregue = sc.nextLine();
+					Livro livro = new Livro(livroEntregue, autorEntregue);
+					
+				break;
+
+				case 2:
+				System.out.println("Digite o nome do livro:");
+				String livroAlugar = sc.nextLine();
+				System.out.println("Verificando disponibilidade no sistema...");
+
+				 if (storage.verificarLivro(livroAlugar) == true){
+
+				 }
+				break;
+
+				case 3:
+				System.out.println("Digite o nome do livro");
+				String livroNome = sc.nextLine();
+
+				System.out.println("Digite o nome do Autor");
+				String autor = sc.nextLine();
+
+				Livro livro1 = new Livro(livroNome, autor);
+				
+				storage.addLivro(livro1);
+
+				
+				
+
+
+
+				break;
+			}
+
+			
+		break;
 		}
 		
 			
