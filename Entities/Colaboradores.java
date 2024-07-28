@@ -1,8 +1,12 @@
 package Entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Colaboradores {
 	
   private String name;
+  List <Colaboradores> colaborador = new ArrayList<>();
   
 
   //contructors
@@ -26,6 +30,10 @@ public class Colaboradores {
   }
 
   //methods
+
+  public void addColaborador(Colaboradores colaboradores){
+    colaborador.add(colaboradores);
+  }
   
   
 

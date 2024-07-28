@@ -3,6 +3,8 @@ package Entities;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
 
@@ -10,6 +12,9 @@ public class Cliente {
 	private int idade;
 	private String telefone;
 	private String livro;
+
+
+	List <Cliente> clientes = new ArrayList<>();
 	
 	
 	//constructors
@@ -17,12 +22,12 @@ public class Cliente {
 	public Cliente() {
 	}
 	
-	public Cliente(String nome, int idade, String telefone, String livro) {
+	public Cliente(String nome, int idade, String telefone) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
 		this.telefone = telefone;
-		this.livro = livro;
+		
 	}
 	
 	//getters and setters
@@ -66,6 +71,10 @@ public class Cliente {
 	}
 
 	//methods
+
+	public void addCliente(Cliente cliente){
+		clientes.add(cliente);
+	}
 
 	DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
 	LocalDateTime data = LocalDateTime.now();

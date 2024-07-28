@@ -1,6 +1,7 @@
 package Program;
 
 import Entities.Cliente;
+import Entities.Colaboradores;
 import Entities.Livro;
 import Entities.storage;
 import java.util.Scanner;
@@ -8,8 +9,10 @@ import java.util.Scanner;
 public class Biblioteca {
 
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		
+
 		System.out.println(
 				"-------------------------"
 				+"\n  SEJA BEM VINDO!"
@@ -40,14 +43,22 @@ public class Biblioteca {
 			System.out.println("Insira seu telefone de contato no formato (ddd)9xxxx-xxxx");
 			String telefone = sc.nextLine();
 			System.out.println();
-			
+
+			Cliente cl = new Cliente(nome, idade, telefone);
+			cl.addCliente(cl);
+
 			System.out.println("Digite o nome do livro desejado: ");
 
 			String livroCliente = sc.nextLine();
-			storage.verificarLivro(livroCliente);
 
+			if (storage.verificarLivro(livroCliente)== true){
 			System.out.println("Verificando no disponibilidade no sistema...");
-			
+			cl.reservarLivro();
+			} else {
+				System.out.println("Livro não disponível.");
+			}
+
+
 			break;
 			
 			
@@ -56,6 +67,9 @@ public class Biblioteca {
 			System.out.println("Seja bem vindo, colaborador!");
 			System.out.println("Digite seu nome: ");
 			String name = sc.nextLine();
+
+			Colaboradores clb = new Colaboradores();
+			
 
 		 	System.out.println(
 			"O que deseja fazer a seguir?"
@@ -84,7 +98,10 @@ public class Biblioteca {
 
 				 if (storage.verificarLivro(livroAlugar) == true){
 
-				 }
+					System.out.println("Verificando no disponibilidade no sistema...");
+					} else {
+						System.out.println("Livro não disponível.");
+					}
 				break;
 
 				case 3:
